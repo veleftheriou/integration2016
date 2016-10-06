@@ -1,0 +1,24 @@
+<html>
+<head>
+   <script>
+      var cart = [];
+   function add(val1, val2){
+      cart.push({'type: ':val1,'plat: ':val2});
+   }
+
+   </script>
+</head>
+   <body>
+      
+      <form action="#" onsubmit="" method = "POST">
+         <input type="checkbox" name="plat1" value="steak" onclick="add(this.value, this.name)"> Steak<br>
+         <input type="checkbox" name="plat2" value="poisson" onclick="add(this.value, this.name)" > Poisson<br>
+         <input type="checkbox" name="plat3" value="pâtes"  onclick="add(this.value, this.name)" > Pâte<br>
+         <input type="checkbox" name="plat4" value="tomate" onclick="add(this.value, this.name)" > Tomate<br>
+         <input type="submit" value="Submit">
+      </form>
+      
+   </body>
+</html>
+
+
