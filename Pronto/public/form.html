@@ -1,24 +1,44 @@
 <html>
 <head>
+   <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
    <script>
+
       var cart = [];
-   function add(val1, val2){
-      cart.push({'type: ':val1,'plat: ':val2});
-   }
+      function add(val1, val2){
+         cart.push({'type: ':val2,'plat: ':val1});
+      }
+
+      function addQuant(val1){
+         cart.push({'quant: ':val1});
+      }
+
+
+      function onSubmit() {
+         $.ajax({
+            type: 'POST',
+            data: JSON.stringify(cart),
+            contentType: 'application/json',
+            url: '/process_post'
+         });
+
+
+      }
 
    </script>
 </head>
-   <body>
-      
-      <form action="#" onsubmit="" method = "POST">
-         <input type="checkbox" name="plat1" value="steak" onclick="add(this.value, this.name)"> Steak<br>
-         <input type="checkbox" name="plat2" value="poisson" onclick="add(this.value, this.name)" > Poisson<br>
-         <input type="checkbox" name="plat3" value="pâtes"  onclick="add(this.value, this.name)" > Pâte<br>
-         <input type="checkbox" name="plat4" value="tomate" onclick="add(this.value, this.name)" > Tomate<br>
-         <input type="submit" value="Submit">
-      </form>
-      
-   </body>
+<body>
+
+<form action=# method = "POST">
+   <input type="checkbox" name="plat1" value="steak" onclick="add(this.value, this.name)" > Steak<input type="number" name="plat1" onchange="addQuant(this.value)"> <br>
+   <input type="checkbox" name="plat2" value="poisson" onclick="add(this.value, this.name)" > Poisson<input type="number" name="plat2" onchange="addQuant(this.value)"><br>
+   <input type="checkbox" name="plat3" value="pâtes"  onclick="add(this.value, this.name)" > Pâte<input type="number" name="plat3" onchange="addQuant(this.value)"><br>
+   <input type="checkbox" name="plat4" value="tomate" onclick="add(this.value, this.name)" > Tomate<input type="number" name="plat4" onchange="addQuant(this.value)"><br>
+   <input type="submit" value="Submit" onclick="onSubmit()">
+</form>
+
+</body>
 </html>
+
+
 
 
