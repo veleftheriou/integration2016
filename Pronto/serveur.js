@@ -46,9 +46,9 @@ app.post('/process_post', function (req, res) {
 })
 
 function reception(req,res) {
-    console.log(req.body);
+    var commande = req.body;
+    console.log(commande);
 }
-
 
 app.listen(3000,function(){
     console.log("Live at Port 3000");
