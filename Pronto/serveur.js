@@ -12,6 +12,23 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+var MongoClient = require('mongodb').MongoClient
+    , assert = require('assert');
+
+// Connection URL
+var url = 'mongodb://localhost:27017/db';
+
+var insertDocuments = function(db, callback,data) {
+    // Get the documents collection
+    var collection = db.collection('documents');
+    // Insert some documents
+    collection.insert(
+        data, function(err, result) {
+            console.log("success");
+            callback(result);
+        });
+}
+
 
 router.use(function (req,res,next) {
     console.log("/" + req.method);
@@ -48,7 +65,20 @@ app.post('/process_post', function (req, res) {
 function reception(req,res) {
     var commande = req.body;
     console.log(commande);
+
+    MongoClient.connect(url, function (err, db) {
+        assert.equal(null, err);
+        console.log("Connected successfully to server database");
+
+        insertDocuments(db, function () {
+
+            db.close();
+        }, commande);
+
+    });
 }
+
+
 
 app.listen(3000,function(){
     console.log("Live at Port 3000");
