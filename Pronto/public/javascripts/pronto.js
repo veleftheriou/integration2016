@@ -30,6 +30,8 @@ function getItem(a) {
     item = document.getElementById(a + 'Nom').textContent;
     add(a,item);
     console.log(tmp);
+    temp = document.getElementById("temp");
+    temp.textContent = tmp;
 }
 
 
@@ -56,4 +58,6 @@ function submit() {
         contentType: 'application/json',
         url: '/process_post'
     });
+    location.reload();
+    return false;
 }
