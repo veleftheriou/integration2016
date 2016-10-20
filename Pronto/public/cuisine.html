@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cuisine</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io('/cuisine');
+        socket.on('cuisine',function(data){
+            document.getElementById('cont').innerHTML = data;
+
+        });
+    </script>
+</head>
+<body>
+<h1>cuisine</h1>
+<div id="cont"></div>
+</body>
+</html>
