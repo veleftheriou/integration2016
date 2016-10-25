@@ -65,15 +65,17 @@ function addCart(val){
 }
 
 function onSubmit() {
-    $.ajax({
-        type: 'POST',
-        data: JSON.stringify(cart),
-        contentType: 'application/json',
-        url: '/process_post'
-    });
+        addCart();
+        $.ajax({
+            type: 'POST',
+            data: JSON.stringify(cart),
+            contentType: 'application/json',
+            url: '/process_post'
+        });
+
     $(document).ready(function(){
         $('.btn-success').popover({trigger: "focus", content: "commande envoyée", placement: "bottom"});
-    });
+    })
 }
 
 //fonction qui affiche le résumé de la commande
