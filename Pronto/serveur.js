@@ -3,11 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var shortid = require('shortid');
-var stringify = require('json-stringify-safe');
-var fs = require('fs');
-var formidable = require("formidable");
-var util = require('util');
+
 
 var nspCuisine = io.of('/cuisine');
 nspCuisine.on('connection', function(socket){
