@@ -27,7 +27,7 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
         var socket = io('/bar');
-        socket.on('bare',function(data){
+        socket.on('bar',function(data){
             document.getElementById('tableau').innerHTML = data;
         });
     </script>
@@ -50,7 +50,6 @@
                 <tr>
                     <th>Numéro de table :</th>
                     <th>Nom de la boisson :</th>
-                    <th>Prix :</th>
                 </tr>
                 </thead>
                 <tbody id="tableau">

@@ -59,8 +59,8 @@ function addQuant(val1,val2){
     addCart(val2)
 }
 
-function addCart(val){
-    cart.push({ val : tmp});
+function addCart(){
+    cart.push({ 'commande' : tmp});
     tmp = [];
 }
 
@@ -76,6 +76,8 @@ function onSubmit() {
     $(document).ready(function(){
         $('.btn-success').popover({trigger: "focus", content: "commande envoyée", placement: "bottom"});
     })
+
+    cart = [];
 }
 
 //fonction qui affiche le résumé de la commande
