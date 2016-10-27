@@ -124,7 +124,7 @@ function reception(req,res) {
     var commande = req.body;
     recordDB(commande);
     //viewDB();
-    console.log(commande);
+    console.log(JSON.stringify(commande));
 
     sendBar(JSON.stringify(commande));
     sendCuisine(JSON.stringify(commande));

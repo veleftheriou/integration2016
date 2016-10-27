@@ -78,31 +78,31 @@
 
         <!--selection du garçon qui sert en salle (temporaire, session)-->
         <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" onclick="showHide">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 Sélectionner du garçon de salle ici
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li><a href="#">Serveur 1</a></li>
-                <li><a href="#">Serveur 2</a></li>
-                <li><a href="#">Serveur 3</a></li>
+                <li><a href="#" onclick="setGarcon(this)">Serveur 1</a></li>
+                <li><a href="#" onclick="setGarcon(this)">Serveur 2</a></li>
+                <li><a href="#" onclick="setGarcon(this)">Serveur 3</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#">Au bar</a></li>
+                <li><a href="#" onclick="setGarcon(this)">Au bar</a></li>
             </ul>
         </div>
 
         <!-- sélection de la table-->
         <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" onclick="showHide">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 Sélectionner la table ici
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li><a href="#">Table 1</a></li>
-                <li><a href="#">Table 2</a></li>
-                <li><a href="#">Table 3</a></li>
+                <li><a href="#" onclick="setTable(this)">Table 1</a></li>
+                <li><a href="#" onclick="setTable(this)">Table 2</a></li>
+                <li><a href="#" onclick="setTable(this)">Table 3</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#">Au bar</a></li>
+                <li><a href="#" onclick="setTable(this)">Au bar</a></li>
             </ul>
         </div>
         </br>
@@ -224,7 +224,7 @@
     <div class="col-md-9" id="entrees" style="display: none;">
 
         <h2>Entrées</h2>
-
+        
         <div class="thumbnail" id="entree1">
             <div class="caption-full">
                 <h4 class="pull-right" id="entree1Prix">$21</h4>
@@ -234,7 +234,7 @@
                     <input id ="resultEntree1" class="btn btn-default" type="texte" value="0" maxlength="2" />
                     <input id="plusEntree1" class="btn btn-default" type="button" value="+" onclick="getItem('entree1')"/>
                 </h4>
-                <!-- <p id="entree1Desc">jumbo lump crab, avocado, herb oil.</p> -->
+                <!-- <p id="entree1Desc">jumbo lump crab, avocado, herb oil.</p>-->
                 <textarea class="form-control" rows="2" id="commententree1" placeholder="Commentaires: "></textarea>
             </div>
         </div>
@@ -377,8 +377,9 @@
 
     <div class="col-md-9" id="commande" style="display: none;">
         <h2>Commandes</h2>
-
-        <div id="temp"></div>
+        <p>Service par le garçon de salle : <b id="garconCom"></b>.</p>
+        <p>Table servie : <b id="tableCom"></b>.</p>
+        <div id="tempCom"></div>
 
         <h4 class="pull-right"><button class="btn btn-success" onclick="onSubmit()">Commander</button></h4>
 
