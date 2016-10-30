@@ -168,6 +168,7 @@ function raz(){
     setElem('garconCom', '');
     setElem('tableCom', '');
     tmp = {};
+    cart = {};
 }
 
 function affiche(){
